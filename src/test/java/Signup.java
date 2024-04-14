@@ -15,20 +15,15 @@ public class Signup {
     // Before testing, need to open a window and navigate to testing website
     @BeforeTest
     void open_browser() throws InterruptedException{
+
         chrome_driver.get("https://publix.com/");
         chrome_driver.manage().window().maximize();
         Thread.sleep(1000);
-
-        // Navigate to the sign up page
-        chrome_driver.findElement(By.id("userSignUp")).click();
-        Thread.sleep(2000);
     }
 
     // Before testing, adding extra data
     @BeforeTest
     void start_sign_up() throws InterruptedException{
-
-        // This method will begin with inserting information we will not be testing.
 
         // Variables to insert into sign up field
         String first_name = "Test";
@@ -47,6 +42,7 @@ public class Signup {
     // After testing, need to close and quit the driver since no longer in use
     @AfterTest
     void close_browser() throws InterruptedException {
+
         Thread.sleep(3000);
         chrome_driver.close();
         chrome_driver.quit();
@@ -54,6 +50,7 @@ public class Signup {
 
 
     public void clear_field(WebElement element){
+
         // Issue with .clear() method, need non-tested function to clear inputs
         element.sendKeys("Delete");
         element.sendKeys(Keys.COMMAND + "a");
@@ -61,6 +58,17 @@ public class Signup {
     }
 
     @Test (priority = 1)
+    void navigate_to_signup() throws InterruptedException{
+
+        // Navigate to the sign up page
+        chrome_driver.findElement(By.id("userSignUp")).click();
+        Thread.sleep(2000);
+
+        // Check if current title is correct
+        Assert.assertEquals(chrome_driver.getTitle(), "Register | Publix Super Markets", "Incorrect page");        
+    }
+
+    @Test (priority = 2)
     void test_passwords() throws InterruptedException{
 
         WebElement element = chrome_driver.findElement(By.name("Password"));
@@ -117,8 +125,9 @@ public class Signup {
         Thread.sleep(2000);
     }
 
-    @Test (priority = 2)
+    @Test (priority = 3)
     void test_email_use() throws InterruptedException {
+
         // This will fill the email field and check see if the system notices that the address is currently in use
         // error id = input_EmailAddress13_error
         String email_add = "testng.selenium.exam@gmail.com";
