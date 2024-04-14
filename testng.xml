@@ -4,48 +4,8 @@
     <test verbose="2" preserve-order="true" name="/Users/willward/IdeaProjects/Final_Group_Project">
         <classes>
             <class name="Signup">
-                <methods>
-                    <include name="method_name"></include>
-                </methods>
             </class>
-
-            <class name="Login">
-                <methods>
-                    <include name="method_name"></include>
-                </methods>
-            </class>
-
-
-
-            <class name="Cart">
-
-            </class>
-            <class name="Homepage">
-                <methods>
-                    <include name="method_name"></include>
-                </methods>
-            </class>
-            <class name="Locations">
-                <methods>
-                    <include name="method_name"></include>
-                </methods>
-            </class>
-
-            <class name="Orderahead">
-                <methods>
-                    <include name="method_name"></include>
-                </methods>
-            </class>
-            <class name="Search">
-                <methods>
-                    <include name="method_name"></include>
-                </methods>
-            </class>
-            <class name="Shoppinglist">
-                <methods>
-                    <include name="method_name"></include>
-                </methods>
-            </class>
+            
         </classes>
     </test>
 </suite>
