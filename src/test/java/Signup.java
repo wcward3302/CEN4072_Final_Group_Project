@@ -60,7 +60,7 @@ public class Signup {
         element.sendKeys(Keys.DELETE);
     }
 
-    @Test (priority = 2)
+    @Test (priority = 1)
     void test_passwords() throws InterruptedException{
 
         WebElement element = chrome_driver.findElement(By.name("Password"));
@@ -117,7 +117,7 @@ public class Signup {
         Thread.sleep(2000);
     }
 
-    @Test (priority = 3)
+    @Test (priority = 2)
     void test_email_use() throws InterruptedException {
         // This will fill the email field and check see if the system notices that the address is currently in use
         // error id = input_EmailAddress13_error
