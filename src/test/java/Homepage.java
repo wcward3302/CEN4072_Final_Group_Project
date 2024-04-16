@@ -1,4 +1,7 @@
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -32,6 +35,8 @@ public class Homepage {
         Thread.sleep(3000);
         //refresh page to prevent elemets going stale in the DOM
         chrome_driver.navigate().refresh();
+        Thread.sleep(500);
+        chrome_driver.findElement(By.id("tou-button")).click();
     }
 
     // After testing, need to close and quit the driver since no longer in use
@@ -43,7 +48,6 @@ public class Homepage {
         chrome_driver.quit();
     }
 
-
     // First test, test home page buy one get one link
     @Test (priority = 1)
     void home_page_bogo() throws InterruptedException{
@@ -53,7 +57,6 @@ public class Homepage {
 
         // Check if page loaded is correct
         Assert.assertEquals(chrome_driver.getTitle(), "BOGO | Publix Super Markets", "Page not loaded correctly");
-        Thread.sleep(500);
 
         // Click publix icon to return to home
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
@@ -64,80 +67,55 @@ public class Homepage {
     @Test (priority = 2)
     void home_page_grad() throws InterruptedException{
 
-        chrome_driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/div/nav/ul/li[2]/a")).click();
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[1]/div/div/nav/ul/li[2]/a")).click();
         Thread.sleep(1000);
 
         // Check if page loaded is correct
-        Assert.assertEquals(chrome_driver.getTitle(), "Celebrate Graduation with Publix | Publix Super Markets", "Page not loaded correctly");
-
-        // Click publix icon to return to home after refreshing to ensure element is not stale
-        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
-        Thread.sleep(1000);
-    }
-
-    // Fifth test, test home page Subs and Wraps link
-    @Test (priority = 3)
-    void home_page_subs() throws InterruptedException{
-
-        chrome_driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/div/nav/ul/li[3]/a")).click();
-        Thread.sleep(1000);
-
-        // Check if page loaded is correct
-        Assert.assertEquals(chrome_driver.getTitle(), "Publix Deli Subs and Wraps | Publix Super Markets", "Page not loaded correctly");
-        Thread.sleep(500);
+        Assert.assertEquals(chrome_driver.getTitle(), "Order Graduation Cakes, Cupcakes, and Platters | Publix Super Markets", "Page not loaded correctly");
 
         // Click publix icon to return to home
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
         Thread.sleep(1000);
     }
 
-    // Sixth test, test home page cakes links
-    @Test (priority = 4)
-    void home_page_cakes() throws InterruptedException{
-
-        chrome_driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/div/nav/ul/li[4]/a")).click();
-        Thread.sleep(1000);
-
-        // Check if page loaded is correct
-        Assert.assertEquals(chrome_driver.getTitle(), "Order Bakery Cakes and Custom Personalized Cakes | Publix Super Markets", "Page not loaded correctly");
-        Thread.sleep(500);
-
-        // Click publix icon to return to home
-        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
-        Thread.sleep(1000);
-    }
-
-    // First test is to follow and return from most of the navigation links found on the home page
-    @Test (priority = 5)
-    void drop_down_weeklyads() throws InterruptedException{
-
-        // click dropdown, then click weekly ads
-        chrome_driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[1]/div/button")).click();
-        Thread.sleep(500);
-        chrome_driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[1]/div/div/ul/li[1]/a")).click();
-        Thread.sleep(1000);
-
-        // Check if page loaded is correct
-        Assert.assertEquals(chrome_driver.getTitle(), "Weekly Ad | Publix Super Markets", "Page not loaded correctly");
-        Thread.sleep(500);
-
-        // Click publix icon to return to home
-        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
-    }
 
     // Second test, test drop down buy one get one link
     @Test (priority = 6)
     void drop_down_bogo() throws InterruptedException{
 
         // click dropdown, then click weekly ads
-        chrome_driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[1]/div/button")).click();
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[1]/div/button")).click();
         Thread.sleep(500);
-        chrome_driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[1]/div/div/ul/li[2]/a")).click();
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[1]/div/div/ul/li[2]/a")).click();
         Thread.sleep(1000);
 
         // Check if page loaded is correct
         Assert.assertEquals(chrome_driver.getTitle(), "BOGO | Publix Super Markets", "Page not loaded correctly");
         Thread.sleep(500);
+
+        // Click publix icon to return to home
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
+    }
+
+    @Test (priority = 7)
+    void contact_us() throws InterruptedException{
+
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/footer/div/nav/ul/li[1]/div[1]/ul/li[3]/div/a")).click();
+        Thread.sleep(500);
+
+        Assert.assertEquals(chrome_driver.getTitle(), "Contact Us | Publix Super Markets", "Page not loaded correctly");
+
+        // Click publix icon to return to home
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
+    }
+
+    @Test (priority = 8)
+    void policy_info() throws InterruptedException{
+
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/footer/div/nav/ul/li[1]/div[1]/ul/li[4]/div/a")).click();
+        Thread.sleep(500);
+
+        Assert.assertEquals(chrome_driver.getTitle(), "Publix Policies | Publix Super Markets", "Page not loaded correctly");
 
         // Click publix icon to return to home
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
