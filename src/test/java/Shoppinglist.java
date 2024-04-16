@@ -50,8 +50,6 @@ public class ShoppingList {
         chrome_driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[1]/div/button")).click();
         Thread.sleep(3000);
         chrome_driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[1]/div/div/ul/li[2]/a")).click();
-       // JavascriptExecutor js = (JavascriptExecutor) chrome_driver;
-        //js.executeScript("window.scrollBy(0,250)", "");
         Thread.sleep(2000);
         chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[5]/div/div[2]/div[2]/div[2]/div[1]/div/div[2]/div[4]/button")).click();
         Thread.sleep(750);
