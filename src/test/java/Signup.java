@@ -19,6 +19,11 @@ public class Signup {
         chrome_driver.get("https://publix.com/");
         chrome_driver.manage().window().maximize();
         Thread.sleep(1000);
+
+
+        // Navigate to the sign up page
+        chrome_driver.findElement(By.id("userSignUp")).click();
+        Thread.sleep(2000);
     }
 
     // Before testing, adding extra data
@@ -59,11 +64,6 @@ public class Signup {
 
     @Test (priority = 1)
     void navigate_to_signup() throws InterruptedException{
-
-        // Navigate to the sign up page
-        chrome_driver.findElement(By.id("userSignUp")).click();
-        Thread.sleep(2000);
-
         // Check if current title is correct
         Assert.assertEquals(chrome_driver.getTitle(), "Register | Publix Super Markets", "Incorrect page");        
     }
