@@ -44,7 +44,8 @@ public class Weeklyads {
 
     @Test (priority = 1)
     void scrollFlyer() throws InterruptedException{
-        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[5]/a")).click();
+        Thread.sleep(2000);
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[1]/ul/li[5]/a")).click();
         Thread.sleep(2000);
         
 
