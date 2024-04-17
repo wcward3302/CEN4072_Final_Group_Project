@@ -24,6 +24,12 @@ public class Signup {
     }
 
     @Test (priority = 2)
+    void navigate_to_signup() throws InterruptedException{
+        // Check if current title is correct
+        Assert.assertEquals(chrome_driver.getTitle(), "Register | Publix Super Markets", "Incorrect page");        
+    }
+
+    @Test (priority = 3)
     void start_sign_up() throws InterruptedException{
 
         // Variables to insert into sign up field
@@ -46,12 +52,6 @@ public class Signup {
         element.sendKeys("Delete");
         element.sendKeys(Keys.COMMAND + "a");
         element.sendKeys(Keys.DELETE);
-    }
-
-    @Test (priority = 3)
-    void navigate_to_signup() throws InterruptedException{
-        // Check if current title is correct
-        Assert.assertEquals(chrome_driver.getTitle(), "Register | Publix Super Markets", "Incorrect page");        
     }
 
     @Test (priority = 4)
