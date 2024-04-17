@@ -1,22 +1,16 @@
-import java.util.NoSuchElementException;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Homepage {
 
     public WebDriver chrome_driver;
 
-    // Before testing, need to open a window and navigate to testing website
-    @BeforeTest
+    @Test (priority = 1)
     void open_browser() throws InterruptedException{
 
         ChromeOptions chrome_options = new ChromeOptions();
@@ -39,17 +33,8 @@ public class Homepage {
         chrome_driver.findElement(By.id("tou-button")).click();
     }
 
-    // After testing, need to close and quit the driver since no longer in use
-    @AfterTest
-    void close_browser() throws InterruptedException {
 
-        Thread.sleep(3000);
-        chrome_driver.close();
-        chrome_driver.quit();
-    }
-
-    // First test, test home page buy one get one link
-    @Test (priority = 1)
+    @Test (priority = 2)
     void home_page_bogo() throws InterruptedException{
 
         chrome_driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/div/nav/ul/li[1]/a")).click();
@@ -63,8 +48,7 @@ public class Homepage {
         Thread.sleep(1000);
     }
 
-    // Fourth test, test home page grad link
-    @Test (priority = 2)
+    @Test (priority = 3)
     void home_page_grad() throws InterruptedException{
 
         chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[1]/div/div/nav/ul/li[2]/a")).click();
@@ -78,9 +62,7 @@ public class Homepage {
         Thread.sleep(1000);
     }
 
-
-    // Second test, test drop down buy one get one link
-    @Test (priority = 6)
+    @Test (priority = 4)
     void drop_down_bogo() throws InterruptedException{
 
         // click dropdown, then click weekly ads
@@ -97,7 +79,7 @@ public class Homepage {
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
     }
 
-    @Test (priority = 7)
+    @Test (priority = 5)
     void contact_us() throws InterruptedException{
 
         chrome_driver.findElement(By.xpath("/html/body/div[1]/footer/div/nav/ul/li[1]/div[1]/ul/li[3]/div/a")).click();
@@ -109,7 +91,7 @@ public class Homepage {
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
     }
 
-    @Test (priority = 8)
+    @Test (priority = 6)
     void policy_info() throws InterruptedException{
 
         chrome_driver.findElement(By.xpath("/html/body/div[1]/footer/div/nav/ul/li[1]/div[1]/ul/li[4]/div/a")).click();
@@ -119,5 +101,13 @@ public class Homepage {
 
         // Click publix icon to return to home
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
+    }
+
+    @Test (priority = 7)
+    void close_browser() throws InterruptedException {
+
+        Thread.sleep(3000);
+        chrome_driver.close();
+        chrome_driver.quit();
     }
 }

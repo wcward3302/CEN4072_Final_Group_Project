@@ -3,8 +3,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Locations {
@@ -13,23 +11,14 @@ public class Locations {
 
     public WebDriver chrome_driver = new ChromeDriver();
 
-    // Before testing, need to open a window and navigate to testing website
-    @BeforeTest
+    @Test (priority = 1)
     void open_browser() throws InterruptedException{
         chrome_driver.get("https://publix.com/");
         chrome_driver.manage().window().maximize();
         Thread.sleep(1000);
     }
 
-    // After testing, need to close and quit the driver since no longer in use
-    @AfterTest
-    void close_browser() throws InterruptedException {
-        Thread.sleep(3000);
-        chrome_driver.close();
-        chrome_driver.quit();
-    }
-
-    @Test (priority = 1)
+    @Test (priority = 2)
     void navigate_to_locations() throws InterruptedException{
 
         // Navigate to Locations pop up
@@ -45,7 +34,7 @@ public class Locations {
         System.out.println("Location page loaded");
     }
 
-    @Test (priority = 2)
+    @Test (priority = 3)
     void pick_estero_store() throws InterruptedException {
 
         //Must click block location services to function correctly, this is for delay 
@@ -64,5 +53,12 @@ public class Locations {
         
         Assert.assertEquals(text, "Corkscrew Village", "Location not set correctly");
         System.out.println("Location set correctly");
+    }
+
+    @Test (priority = 4)
+    void close_browser() throws InterruptedException {
+        Thread.sleep(3000);
+        chrome_driver.close();
+        chrome_driver.quit();
     }
 }

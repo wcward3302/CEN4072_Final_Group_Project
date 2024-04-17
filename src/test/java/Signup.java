@@ -4,16 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class Signup {
 
     public WebDriver chrome_driver = new ChromeDriver();
 
-    // Before testing, need to open a window and navigate to testing website
-    @BeforeTest
+    @Test (priority = 1)
     void open_browser() throws InterruptedException{
 
         chrome_driver.get("https://publix.com/");
@@ -26,8 +23,7 @@ public class Signup {
         Thread.sleep(2000);
     }
 
-    // Before testing, adding extra data
-    @BeforeTest
+    @Test (priority = 2)
     void start_sign_up() throws InterruptedException{
 
         // Variables to insert into sign up field
@@ -44,16 +40,6 @@ public class Signup {
         Thread.sleep(500);
     }
 
-    // After testing, need to close and quit the driver since no longer in use
-    @AfterTest
-    void close_browser() throws InterruptedException {
-
-        Thread.sleep(3000);
-        chrome_driver.close();
-        chrome_driver.quit();
-    }
-
-
     public void clear_field(WebElement element){
 
         // Issue with .clear() method, need non-tested function to clear inputs
@@ -62,13 +48,13 @@ public class Signup {
         element.sendKeys(Keys.DELETE);
     }
 
-    @Test (priority = 1)
+    @Test (priority = 3)
     void navigate_to_signup() throws InterruptedException{
         // Check if current title is correct
         Assert.assertEquals(chrome_driver.getTitle(), "Register | Publix Super Markets", "Incorrect page");        
     }
 
-    @Test (priority = 2)
+    @Test (priority = 4)
     void test_passwords() throws InterruptedException{
 
         WebElement element = chrome_driver.findElement(By.name("Password"));
@@ -125,7 +111,7 @@ public class Signup {
         Thread.sleep(2000);
     }
 
-    @Test (priority = 3)
+    @Test (priority = 5)
     void test_email_use() throws InterruptedException {
 
         // This will fill the email field and check see if the system notices that the address is currently in use
@@ -146,5 +132,13 @@ public class Signup {
         // Issue with site - when using automation, it will not confirm if address is currently in use
         Assert.assertEquals(error_text, "", "no error is present");
         Thread.sleep(2000);
+    }
+
+    @Test (priority = 6)
+    void close_browser() throws InterruptedException {
+
+        Thread.sleep(3000);
+        chrome_driver.close();
+        chrome_driver.quit();
     }
 }
