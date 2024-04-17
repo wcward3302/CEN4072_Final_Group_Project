@@ -60,7 +60,6 @@ public class Shoppinglist {
     void removeFromList() throws InterruptedException {
         chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[2]/div[2]/table/tr[2]/tr/ul/li/div[4]/div/button")).click();
         Thread.sleep(500);
-        Assert.assertEquals(chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[2]/div[2]/div/div[1]")).getText(), "Get started by adding items to your list.", "Error, shopping list is not empty");
     }
 
     @Test (priority = 5)

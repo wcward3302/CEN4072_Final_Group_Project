@@ -33,7 +33,8 @@ public class Catering {
     @Test (priority = 2)
     void go_to_catering() throws InterruptedException{
 
-        chrome_driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[3]/a")).click();
+        Thread.sleep(1000);
+        chrome_driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/div/nav/ul/li[5]/a")).click();
         Thread.sleep(1000);
 
         Assert.assertEquals(chrome_driver.getTitle(), "Catering by Publix: Order Food Here for Your Event or Party | Publix Super Markets", "Incorrect page loaded");
