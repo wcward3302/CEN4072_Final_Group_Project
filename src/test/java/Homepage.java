@@ -1,3 +1,7 @@
+// Test class = Home page
+// Goal = visit links, navigate around home page
+// Author = William Ward
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -8,8 +12,10 @@ import org.testng.annotations.Test;
 
 public class Homepage {
 
+    //Public chrome driver variable for class to access
     public WebDriver chrome_driver;
 
+    //Test 1 - open browser, navigate to site, set location to prevent random pop up
     @Test (priority = 1)
     void open_browser() throws InterruptedException{
 
@@ -33,7 +39,7 @@ public class Homepage {
         chrome_driver.findElement(By.id("tou-button")).click();
     }
 
-
+    //Test 2 - Click Buy one get one link to test
     @Test (priority = 2)
     void home_page_bogo() throws InterruptedException{
 
@@ -48,6 +54,8 @@ public class Homepage {
         Thread.sleep(1000);
     }
 
+
+    //Test 3 - Click graduation items link to test
     @Test (priority = 3)
     void home_page_grad() throws InterruptedException{
 
@@ -62,6 +70,7 @@ public class Homepage {
         Thread.sleep(1000);
     }
 
+    //Test 4 - visit buy one get one drop down menu link to test
     @Test (priority = 4)
     void drop_down_bogo() throws InterruptedException{
 
@@ -79,6 +88,7 @@ public class Homepage {
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
     }
 
+    //Test 5 - click contact us link at bottom of page
     @Test (priority = 5)
     void contact_us() throws InterruptedException{
 
@@ -91,6 +101,7 @@ public class Homepage {
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
     }
 
+    //Test 6 - Click publix policies link at bottom of page
     @Test (priority = 6)
     void policy_info() throws InterruptedException{
 
@@ -103,6 +114,7 @@ public class Homepage {
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/a")).click();
     }
 
+    //Test 7 - close and quit driver
     @Test (priority = 7)
     void close_browser() throws InterruptedException {
 

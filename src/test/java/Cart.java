@@ -1,3 +1,7 @@
+// Test class = Cart
+// Goal = add item to cart, modify quantity, remove, start checkout.
+// Author = William Ward
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -8,8 +12,10 @@ import org.testng.annotations.Test;
 
 public class Cart {
 
+    //Public chrome driver variable for class to access
     public WebDriver chrome_driver;
 
+    //Test 1 - open browser and navigate to publix site
     @Test (priority = 1)
     void open_browser() throws InterruptedException{
 
@@ -19,6 +25,7 @@ public class Cart {
         Thread.sleep(1000);
     }
 
+    //Test 2 - Navigate to a page where an item can be added to the cart
     @Test (priority = 2)
     void add_item_cart() throws InterruptedException{
         // Go to catering
@@ -56,6 +63,7 @@ public class Cart {
         Thread.sleep(1000);
     }
 
+    //Test 3 - modify quantity of item in cart
     @Test (priority = 3)
     void modify_cart() throws InterruptedException{
         // Increase quantity in cart
@@ -65,6 +73,7 @@ public class Cart {
         Thread.sleep(1000);
     }
 
+    //Test 4 - duplicate item in cart, then remove original item
     @Test (priority = 4)
     void remove_cart() throws InterruptedException{
         // Duplicate in cart
@@ -76,12 +85,14 @@ public class Cart {
         Thread.sleep(1000);
     }
 
+    //Test 5 - begin checkout process
     @Test (priority = 5)
     void checkout(){
         chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[2]/div/div[2]/div/div/div/div[3]/button")).click();
     }
 
-    @Test (priority = 10)
+    //Test 6 - close and quit the web driver 
+    @Test (priority = 6)
     void close_browser() throws InterruptedException {
         Thread.sleep(2000);
         chrome_driver.close();

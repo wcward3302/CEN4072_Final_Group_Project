@@ -1,14 +1,19 @@
+// Test class = order sandwich
+// Goal = find and customize sandwich, add to cart
+// Author = William Ward
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Ordersandwich {
 
+    //Public chrome driver variable for class to access
     public WebDriver chrome_driver;
 
+    //Test 1 - Open browser, navigate to site, set location to prevent random pop up
     @Test (priority = 1)
     void open_browser() throws InterruptedException{
         
@@ -27,6 +32,7 @@ public class Ordersandwich {
         Thread.sleep(3000);
     }
 
+    //Test 2 - navigate to order ahead items list
     @Test (priority = 2)
     void order_ahead() throws InterruptedException{
 
@@ -47,7 +53,8 @@ public class Ordersandwich {
         Thread.sleep(1000);
     }
 
-    @Test (priority = 10)
+    //Test 3 - Close and quit driver
+    @Test (priority = 3)
     void close_browser() throws InterruptedException {
 
         // quit and close web driver

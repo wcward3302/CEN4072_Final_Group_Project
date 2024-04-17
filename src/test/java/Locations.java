@@ -1,3 +1,7 @@
+// Test class = Locations
+// Goal = Go to locations map, enter location, select store
+// Author = William Ward
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -7,10 +11,10 @@ import org.testng.annotations.Test;
 
 public class Locations {
 
-    // location xpath = /html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/div/button
-
+    //Public chrome driver variable for class to access
     public WebDriver chrome_driver = new ChromeDriver();
 
+    //Test 1 - Open browser, navigate to site
     @Test (priority = 1)
     void open_browser() throws InterruptedException{
         chrome_driver.get("https://publix.com/");
@@ -18,6 +22,7 @@ public class Locations {
         Thread.sleep(1000);
     }
 
+    //Test 2 - Navigate to locations map
     @Test (priority = 2)
     void navigate_to_locations() throws InterruptedException{
 
@@ -34,6 +39,7 @@ public class Locations {
         System.out.println("Location page loaded");
     }
 
+    //Test 3 - Search for store in Estero
     @Test (priority = 3)
     void pick_estero_store() throws InterruptedException {
 
@@ -55,6 +61,7 @@ public class Locations {
         System.out.println("Location set correctly");
     }
 
+    //Test 4 - close and quit driver
     @Test (priority = 4)
     void close_browser() throws InterruptedException {
         Thread.sleep(3000);

@@ -1,3 +1,7 @@
+// Test class = Catering
+// Goal = Navigate to catering items, navigate into site until at boxed meals
+// Author = Josh Wurtenberg
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -6,9 +10,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Catering {
-
+    //Public chrome driver variable for class to access
     public WebDriver chrome_driver;
 
+    //Test 1 - Open chrome, navigate to site, set location to prevent random pop up during test
     @Test (priority = 1)
     void open_browser() throws InterruptedException{
 
@@ -30,6 +35,7 @@ public class Catering {
         chrome_driver.findElement(By.id("tou-button")).click();
     }
 
+    // Test 2 - Click platters options on home page to find list of catering goods
     @Test (priority = 2)
     void go_to_catering() throws InterruptedException{
 
@@ -37,9 +43,11 @@ public class Catering {
         chrome_driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/div/nav/ul/li[5]/a")).click();
         Thread.sleep(1000);
 
+        //Verify title of page is correct
         Assert.assertEquals(chrome_driver.getTitle(), "Catering by Publix: Order Food Here for Your Event or Party | Publix Super Markets", "Incorrect page loaded");
     }
 
+    //Test 3 - navigate to box meals list
     @Test (priority = 3)
     void click_sandwich_platter() throws InterruptedException{
 
@@ -54,6 +62,7 @@ public class Catering {
         Assert.assertEquals(chrome_driver.getTitle(), "Deli Boxed Meals. | Publix Super Markets", "Incorrect Page Loaded");
     }
 
+    //Test 4 - Close and quit the driver
     @Test (priority = 4)
     void close_browser() throws InterruptedException {
 

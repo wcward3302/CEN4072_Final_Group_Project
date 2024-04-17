@@ -1,3 +1,7 @@
+// Test class = Weekly ads
+// Goal = Navigate to weekly ads, change to list view, scroll down list
+// Author = Josh Wurtenberg
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -8,8 +12,10 @@ import org.testng.annotations.Test;
 
 public class Weeklyads {
 
+    //Public chrome driver variable for class to access
     public WebDriver chrome_driver;
 
+    //Test 1 - Open browser, navigate to site
     @Test (priority = 1)
     void open_browser() throws InterruptedException{
 
@@ -17,10 +23,10 @@ public class Weeklyads {
         chrome_driver.manage().window().maximize();
         chrome_driver.get("https://www.publix.com");
         Thread.sleep(1000);
-
     }
 
 
+    //Test 2 - navigate to weekly ads
     @Test (priority = 2)
     void go_to_weekly_flyer() throws InterruptedException{
         chrome_driver.findElement(By.xpath("/html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/ul/li[5]/a")).click();
@@ -30,10 +36,9 @@ public class Weeklyads {
         Assert.assertEquals(chrome_driver.getTitle(), "Weekly Ad | Publix Super Markets", "Incorrect page");
     }
 
+    //Test 3 - set location, change list view
     @Test (priority = 3)
     void scroll_flyer() throws InterruptedException{
-
-        // Will run into issues if location is not selected at this point
         
         chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/div/div/div[2]/div/div/button")).click();
         Thread.sleep(1000);
@@ -63,6 +68,7 @@ public class Weeklyads {
 
     }
 
+    //Test 4 - close and quit driver
     @Test (priority = 4)
     void close_browser() throws InterruptedException {
         Thread.sleep(3000);
