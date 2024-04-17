@@ -5,19 +5,19 @@
         <classes>
             <class name="Signup">
             </class>
-            <class name="Login">
-            </class>
             <class name="Locations">
             </class>
             <class name="Homepage">
-            </class>
-            <class name="Search">
             </class>
             <class name="Shoppinglist">
             </class>
             <class name="Cart">
             </class>
             <class name="Weeklyads">
+            </class>
+            <class name="Ordersandwich">
+            </class>
+            <class name="Catering">
             </class>
         </classes>
     </test>
