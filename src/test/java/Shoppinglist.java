@@ -7,8 +7,6 @@ import org.testng.annotations.Test;
 
 public class Shoppinglist {
 
-    // location xpath = /html/body/div[2]/header/div[1]/div/div[2]/div/div/div[2]/div/div/button
-
     public WebDriver chrome_driver;
 
     @Test (priority = 1)
