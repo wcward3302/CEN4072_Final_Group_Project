@@ -3,6 +3,7 @@
 // Author = William Ward
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -36,12 +37,27 @@ public class Ordersandwich {
     @Test (priority = 2)
     void order_ahead() throws InterruptedException{
 
+        JavascriptExecutor js = (JavascriptExecutor) chrome_driver;
+        js.executeScript("window.scrollBy(0,600)", "");
+        Thread.sleep(500);
+
         // Click order ahead for list of sandwiches
-        chrome_driver.findElement(By.xpath("/html/body/div[2]/section/div[2]/div[1]/a")).click();
+        chrome_driver.findElement(By.xpath("/html/body/div[2]/section/div[2]/div[4]/a")).click();
         Thread.sleep(1000);
 
         // Select customize sandwich
-        chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[4]/div/div[2]/div[1]/div/div/div[1]/div/div[2]/div[4]/div/div/button[2]")).click();
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div/div[1]/div/div[2]/div[4]/div/div/button[1]")).click();
+        Thread.sleep(1000);
+    }
+
+    @Test (priority = 3)
+    void modify_sandwich() throws InterruptedException{
+        //Select half sandwich
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[2]/div/div/div[1]/div[2]/fieldset[1]/div[2]/div[1]/label")).click();
+        Thread.sleep(1000);
+
+        // add item to order
+        chrome_driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/div/div[2]/div/button")).click();
         Thread.sleep(1000);
 
         //Review order
@@ -54,7 +70,7 @@ public class Ordersandwich {
     }
 
     //Test 3 - Close and quit driver
-    @Test (priority = 3)
+    @Test (priority = 4)
     void close_browser() throws InterruptedException {
 
         // quit and close web driver
