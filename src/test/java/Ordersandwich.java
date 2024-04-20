@@ -59,14 +59,6 @@ public class Ordersandwich {
         // add item to order
         chrome_driver.findElement(By.xpath("/html/body/div[1]/div[4]/div/div/div[2]/div/button")).click();
         Thread.sleep(1000);
-
-        //Review order
-        chrome_driver.findElement(By.xpath("/html/body/div[1]/header/div[1]/div/div[2]/div/div/div[1]/div[2]/div[1]/div/div/div[2]/div[2]/div/div[1]/div[2]/div/div[2]/button")).click();
-        Thread.sleep(1000);
-
-        // Confirm location
-        chrome_driver.findElement(By.xpath("/html/body/div[1]/div[3]/div/div[3]/div/div/button[2]")).click();
-        Thread.sleep(1000);
     }
 
     //Test 3 - Close and quit driver

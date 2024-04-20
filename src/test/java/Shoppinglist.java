@@ -46,7 +46,7 @@ public class Shoppinglist {
         Thread.sleep(2000);
 
         chrome_driver.findElement(By.xpath("/html/body/div[1]/section/div[5]/div/div[2]/div[2]/div[2]/div[1]/div/div[2]/div[4]/button")).click();
-        Thread.sleep(750);
+        Thread.sleep(2000);
 
     }
 
