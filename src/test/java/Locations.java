@@ -12,11 +12,12 @@ import org.testng.annotations.Test;
 public class Locations {
 
     //Public chrome driver variable for class to access
-    public WebDriver chrome_driver = new ChromeDriver();
+    public WebDriver chrome_driver;
 
     //Test 1 - Open browser, navigate to site
     @Test (priority = 1)
     void open_browser() throws InterruptedException{
+        chrome_driver = new ChromeDriver();
         chrome_driver.get("https://publix.com/");
         chrome_driver.manage().window().maximize();
         Thread.sleep(1000);
